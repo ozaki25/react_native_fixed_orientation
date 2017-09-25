@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AppRegistry } from 'react-native';
 import AppNavigator from './app/navigators/AppNavigator';
-import { disabledAndroidBack, abledAndroidBack, onNavigationStateChange } from './app/utils/Utils';
+import { onNavigationStateChange } from './app/utils/Utils';
 
-class ReactNativeSample extends Component {
-  render() {
-    return <AppNavigator onNavigationStateChange={onNavigationStateChange} />
-  }
-}
+const ReactNativeSample = () => <AppNavigator onNavigationStateChange={onNavigationStateChange} />
 
 AppRegistry.registerComponent('ReactNativeSample', () => ReactNativeSample);

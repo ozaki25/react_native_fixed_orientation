@@ -1,25 +1,18 @@
 import React, { Component } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { NavigationActions } from 'react-navigation'
-import Breadcrumb from '../components/Breadcrumb'
-import Style from '../styles/Style'
 
 class SampleEScreen extends Component {
   static navigationOptions = {
     title: 'サンプルE',
-    headerStyle: Style.header,
-    headerRight: <View></View>,
   }
 
   render() {
     return (
-      <View style={Style.container}>
-        <Breadcrumb currentPosition={4} />
-        <View style={Style.contents}>
-          <TouchableOpacity onPress={this._onPressButton.bind(this)}>
-            <Text>サンプルAに戻る</Text>
-          </TouchableOpacity>
-        </View>
+      <View>
+        <TouchableOpacity onPress={this._onPressButton.bind(this)}>
+          <Text>サンプルAに戻る</Text>
+        </TouchableOpacity>
       </View>
     )
   }
