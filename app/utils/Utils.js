@@ -2,7 +2,7 @@ import Orientation from 'react-native-orientation';
 import { landscapeOrientationScreens } from '../navigators/AppNavigator';
 
 const handleOrientation = (currentRouteName) => {
-  landscapeOrientationScreens.includes(currentRouteName) ? Orientation.lockToLandscapeLeft() : Orientation.unlockAllOrientations();
+  landscapeOrientationScreens.includes(currentRouteName) ? Orientation.lockToLandscapeLeft() : Orientation.lockToPortrait();
 }
 
 export const onNavigationStateChange = (prevState, currentState, action) => {

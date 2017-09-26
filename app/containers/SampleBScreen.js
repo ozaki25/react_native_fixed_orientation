@@ -4,7 +4,7 @@ import { NavigationActions } from 'react-navigation'
 
 class SampleBScreen extends Component {
   static navigationOptions = {
-    title: 'サンプルB-画面横固定',
+    title: 'サンプルB-横固定',
   }
 
   render() {
