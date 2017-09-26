@@ -1,13 +1,5 @@
-# react_navigation_sample
+# react_native_fixed_orientation
 
-- react-navigationを使ったサンプル
-- react-native-step-indicatorと無理やり組み合わせてみた
+- react-navigationを使っている時に特定のページの画面向きを固定するサンプル
 
-## android
-
-![android](https://user-images.githubusercontent.com/10087419/30410865-7617fdae-9948-11e7-81b7-9524f93d626a.gif)
-
-## ios
-
-![ios](https://user-images.githubusercontent.com/10087419/30410870-7ae6331e-9948-11e7-9e83-a47454b7390e.gif)
-
+![orientation](https://user-images.githubusercontent.com/10087419/30887229-6f4d1e16-a355-11e7-95c6-a2c96c1211fd.gif)
