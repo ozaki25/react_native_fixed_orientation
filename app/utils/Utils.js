@@ -8,5 +8,5 @@ const handleOrientation = (currentRouteName) => {
 export const onNavigationStateChange = (prevState, currentState, action) => {
   const routes = currentState.routes;
   const currentRouteName = routes[routes.length - 1].routeName;
-  // handleOrientation(currentRouteName);
+  handleOrientation(currentRouteName);
 }

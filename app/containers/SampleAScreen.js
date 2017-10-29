@@ -7,45 +7,44 @@ class SampleAScreen extends Component {
     title: 'サンプルA-縦固定',
   }
 
-  constructor() {
-    super();
-    this.state = { pageVisible: true }
-  }
-
-  componentDidMount() {
-    if(this.state.pageVisible) Orientation.lockToPortrait();
-  }
-
-  componentDidUpdate() {
-    if(this.state.pageVisible) {
-      Orientation.getSpecificOrientation((err, specificOrientation) => {
-        console.log(`Current Orientation is ${specificOrientation}`);
-        if(specificOrientation !== 'PORTRAIT') Orientation.lockToPortrait();
-      })
+  orientationDidChange = (orientation) => {
+    if(orientation !== 'PORTRAIT') {
+      Orientation.lockToPortrait()
+    } else {
+      this.setState({ orientation })
     }
   }
 
+  constructor() {
+    super();
+    this.state = { orientation: '' }
+  }
+
+  componentWillMount() {
+    Orientation.lockToPortrait()
+    const orientation = Orientation.getInitialOrientation()
+    this.setState({ orientation })
+  }
+
+  componentDidMount() {
+    Orientation.addSpecificOrientationListener((this.orientationDidChange))
+  }
+
   render() {
-    return this.state.pageVisible ? (
+    return (
       <View>
         <TouchableOpacity onPress={this._onPressButton.bind(this)}>
           <Text>サンプルBへ</Text>
+          <Text>{this.state.orientation}</Text>
         </TouchableOpacity>
       </View>
-    ) : <View />
+    )
   }
 
   _onPressButton() {
-      Orientation.getSpecificOrientation((err, specificOrientation) => {
-        console.log(`Current Orientation is ${specificOrientation}`);
-      })
-    Orientation.lockToLandscapeLeft()
-    // this.props.navigation.navigate('SampleB', { show: this.show })
-    // this.hide()
+    this.props.navigation.navigate('SampleB')
+    Orientation.removeSpecificOrientationListener((this.orientationDidChange))
   }
-
-  show = () => this.setState({ pageVisible: true })
-  hide = () => this.setState({ pageVisible: false })
 }
 
 export default SampleAScreen

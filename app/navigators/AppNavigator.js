@@ -7,7 +7,6 @@ import SampleCScreen from '../containers/SampleCScreen'
 
 const goBack = (navigation) => () => {
   if(navigation.state.params) {
-    console.log("##########Show#############")
     navigation.state.params.show()
   }
   navigation.goBack()
@@ -29,20 +28,6 @@ const AppNavigator = StackNavigator({
     title: '',
   })
 })
-
-const defaultGetStateForAction = AppNavigator.router.getStateForAction
-
-AppNavigator.router.getStateForAction = (action, state) => {
-  if(state && action.type === NavigationActions.BACK) {
-  }
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  console.log(JSON.stringify(action))
-  console.log(JSON.stringify(state))
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  return defaultGetStateForAction(action, state)
-}
 
 export const landscapeOrientationScreens = ['SampleB']
 export default AppNavigator
