@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { NavigationActions } from 'react-navigation'
-import Orientation from 'react-native-orientation'
 
 class SampleCScreen extends Component {
   static navigationOptions = {

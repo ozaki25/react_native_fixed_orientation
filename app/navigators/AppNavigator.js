@@ -6,9 +6,6 @@ import SampleBScreen from '../containers/SampleBScreen'
 import SampleCScreen from '../containers/SampleCScreen'
 
 const goBack = (navigation) => () => {
-  if(navigation.state.params) {
-    navigation.state.params.show()
-  }
   navigation.goBack()
 }
 
@@ -23,9 +20,8 @@ const AppNavigator = StackNavigator({
   SampleB: { screen: SampleBScreen },
   SampleC: { screen: SampleCScreen },
 }, {
-  navigationOptions: ({ navigation, screenProps }) => ({
-    headerLeft: headerLeft(navigation, screenProps),
-    title: '',
+  navigationOptions: ({ navigation }) => ({
+    headerLeft: headerLeft(navigation),
   })
 })
 
