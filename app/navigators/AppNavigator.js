@@ -1,29 +1,17 @@
-import React from 'react'
-import { Text, TouchableOpacity } from 'react-native'
-import { StackNavigator, NavigationActions } from 'react-navigation'
+import { StackNavigator } from 'react-navigation'
 import SampleAScreen from '../containers/SampleAScreen'
 import SampleBScreen from '../containers/SampleBScreen'
 import SampleCScreen from '../containers/SampleCScreen'
-
-const goBack = (navigation) => () => {
-  navigation.goBack()
-}
-
-const headerLeft = (navigation, screenProps) => (
-  <TouchableOpacity onPress={goBack(navigation)}>
-    <Text>＜</Text>
-  </TouchableOpacity>
-)
+import SampleDScreen from '../containers/SampleDScreen'
+import SampleEScreen from '../containers/SampleEScreen'
 
 const AppNavigator = StackNavigator({
   SampleA: { screen: SampleAScreen },
   SampleB: { screen: SampleBScreen },
   SampleC: { screen: SampleCScreen },
-}, {
-  navigationOptions: ({ navigation }) => ({
-    headerLeft: headerLeft(navigation),
-  })
+  SampleD: { screen: SampleDScreen },
+  SampleE: { screen: SampleEScreen },
 })
 
-export const landscapeOrientationScreens = ['SampleB']
+export const landscapeOrientationScreens = ['SampleB', 'SampleC']
 export default AppNavigator

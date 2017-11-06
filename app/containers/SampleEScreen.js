@@ -3,21 +3,9 @@ import { Text, TouchableOpacity, View } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 
 class SampleEScreen extends Component {
-  static navigationOptions = {
-    title: 'サンプルE',
-  }
+  static navigationOptions = { title: 'サンプルE-縦固定' }
 
-  render() {
-    return (
-      <View>
-        <TouchableOpacity onPress={this._onPressButton.bind(this)}>
-          <Text>サンプルAに戻る</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
-
-  _onPressButton() {
+  _onPressButton = () => {
     this.props.navigation.dispatch(
       NavigationActions.reset({
         index: 0,
@@ -25,6 +13,16 @@ class SampleEScreen extends Component {
           NavigationActions.navigate({ routeName: 'SampleA' }),
         ],
       }),
+    )
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity style={{ flex: 1 }} onPress={this._onPressButton}>
+          <Text>サンプルAに戻る</Text>
+        </TouchableOpacity>
+      </View>
     )
   }
 }
