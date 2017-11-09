@@ -1,30 +1,18 @@
 import React, { Component } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
-import { NavigationActions } from 'react-navigation'
 
 class SampleCScreen extends Component {
-  static navigationOptions = {
-    title: 'サンプルC-縦固定',
-  }
+  static navigationOptions = { title: 'サンプルC-横固定' }
+
+  _onPressButton = () => this.props.navigation.navigate('SampleD')
 
   render() {
     return (
-      <View>
-        <TouchableOpacity onPress={this._onPressButton.bind(this)}>
-          <Text>サンプルAへ戻る</Text>
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity style={{ flex: 1 }} onPress={this._onPressButton}>
+          <Text>サンプルDへ</Text>
         </TouchableOpacity>
       </View>
-    )
-  }
-
-  _onPressButton() {
-    this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 0,
-        actions: [
-          NavigationActions.navigate({ routeName: 'SampleA' }),
-        ],
-      }),
     )
   }
 }
