@@ -10,7 +10,7 @@ class SampleCScreen extends Component {
     return (
       <View style={{ flex: 1 }}>
         <TouchableOpacity style={{ flex: 1 }} onPress={this._onPressButton}>
-          <Text>サンプルDへ</Text>
+          <Text testID="go_to_sampled">サンプルDへ</Text>
         </TouchableOpacity>
       </View>
     )
